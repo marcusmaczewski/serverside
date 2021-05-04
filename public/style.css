@@ -1,0 +1,238 @@
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow-y: auto;
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size:16px;
+}
+
+header{
+	color: #fff;
+	background-color: rgb(18, 20, 32);
+	padding: 10px 20px;
+}
+
+nav {
+	background: rgb(49, 79, 175);
+	padding: 20px;
+	border: 0;
+}
+
+nav a {
+	color: #ddd;
+}
+
+a {
+	color: rgb(255, 255, 255) !important;
+	text-decoration: none;
+	padding: 0 15px;
+}
+
+.error{
+	color:#ff2222;
+}
+main {
+	padding: 20px;
+	flex: 1 0 auto;
+}
+
+footer {
+	flex-shrink: 0;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+	width: 100%;
+	/* margin: auto; */
+}
+
+th{
+	background-color: rgb(49, 79, 175);
+	color: white;
+	padding: 15px;
+	font-weight: normal;
+	text-align: left;
+}
+
+.thead{
+	height: 50px;
+}
+
+.trow{
+	height: 40px;
+}
+
+td,
+th {
+	padding: 5px 10px;
+}
+
+table a.edit{
+	background-color: rgb(255, 157, 0);
+	padding: 5px 8px;
+	border-radius: 4px;
+	font-size: 12px;
+	color: black !important;
+}
+
+table a.remove {
+	background-color: rgb(255, 51, 0);
+	padding: 5px 8px;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+tr:hover {
+	background: rgba(84, 123, 251, 0.2);
+}
+
+
+tr:nth-child(even){
+	background:rgba(84, 123, 251, 0.2);
+}
+table a:hover{
+	color:rgba(43, 68, 148, 0.657);
+}
+
+table .table_actions{
+	max-width: 80px !important;
+}
+
+form label{
+	display: inline-block;
+	width:75px;
+}
+
+form{
+	width: 50%;
+	margin: auto;
+}
+
+form div{
+	margin:5px 0;
+}
+
+.btn {
+	background:rgb(49, 79, 175);
+	color:#fff;
+	border: none;
+	font-size:14px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+	padding:12px 20px;
+	text-align: center;
+	cursor:pointer;
+}
+
+
+label{
+	white-space: nowrap;
+	margin-right: 20px;
+}
+
+input{
+	padding: 8px 10px;
+	width: 300px;
+}
+
+
+
+
+/* Forside - Mine spillere
+------------------------------------------------------------------ */
+
+.myplayers{
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.single_player{
+	border: 1px solid black;
+	/* flex: 1; */
+	/* flex-basis: auto; */
+	width: 300px;
+	height: 400px;
+	margin-right: 20px;
+	padding: 0;
+	position: relative;
+}
+
+.single_player .inner{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.playerage{
+	background-color: rgb(49, 79, 175);
+	font-weight: bolder;
+	font-size: 18px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	color: white;
+}
+
+.playerdetails{
+	font-weight: bolder;
+	font-size: 18px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	left: 50%;
+	bottom: 30px;
+	transform: translateX(-50%);
+}
+
+.gamertag{
+	color: white;
+	background-color: rgb(49, 79, 175);
+	padding: 5px 20px;
+	margin-bottom: 10px;
+}
+
+.name{
+	color:white;
+}
+
+.profile_avatar{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	z-index: -2;
+}
+
+.gradient{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 170px;
+	z-index: -1;
+	background: rgb(2, 0, 36);
+	background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8995799003195029) 16%, rgba(0, 0, 0, 0.664285782672444) 49%, rgba(0, 0, 0, 0) 100%);
+}

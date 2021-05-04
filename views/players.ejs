@@ -1,0 +1,66 @@
+<%- include('template/top.ejs') %>
+
+
+	<!-- Hvis image upload skal virke, så skal formen skifte enctype til multipart/form-data -->
+	<form method="post" enctype="multipart/form-data">
+		<div>
+			<label>Fulde navn:</label>
+			<input type="text" name="fullname" value="<%= locals.player ? locals.player.fullname : '' %>">
+		</div>
+		<div>
+			<label>Gamertag:</label>
+			<input type="text" name="gamertag" value="<%= locals.player ? locals.player.gamertag : '' %>">
+		</div>
+		<div>
+			<label>Alder:</label>
+			<input type="number" name="age" value="<%= locals.player ? locals.player.age : '' %>">
+		<div>
+		<div>
+			<label>Team:</label>
+			<input type="text" name="team" value="<%= locals.player ? locals.player.team : '' %>">
+		</div>
+		<div>
+			<label>Optaget?</label>
+			<input type="checkbox" name="isAvailable" <%= locals.player && locals.player.isAvailable ? 'checked' : ''%>>
+		</div>
+		<div>
+			<label>Billede</label>
+			<input type="file" name="image">
+						<%- locals.player != undefined && locals.player.image != '' ? `<img src="/images/${locals.player.image}" style="width:50px; height: 50px;">` : '' %>
+		</div>
+		<button class="btn">Gem</button><a href="/players" class="btn">Annuller</a>
+
+		<span class="error"><%= locals.message %></span>
+	</form>
+	
+
+
+	<% if(locals.players)  { %>
+		<h1>Alle Spillere</h1>
+		<table>
+			<tr class="thead">
+				<th>Fulde Navn</th>
+				<th>Gamertag</th>
+				<th>Alder</th>
+				<th>Hold</th>
+				<th>Status</th>
+				<th class="table_actions">Handling</th>
+			</tr>
+		<% players.forEach(player => { %>
+				<tr class="trow">
+					<td><%= player.fullname %></td>
+					<td><%= player.gamertag %></td>
+					<td><%= player.age %></td>
+					<td><%= player.team %></td>
+					<td><%= player.isAvailable ? "Optaget" : "Ledig" %></td>
+					<td class="table_actions">
+						<a class="edit" href="/players/edit/<%= player.id %>">Rediger</a>
+						<a class="remove" href="/players/delete/<%= player.id %>" onclick="return confirm('Du er ved at slette <%= player.fullname %>. Ønsker du at fortsætte?')">Slet</a>
+					</td>
+				</tr>
+			<% });  %>
+		</table>	
+	<% } %>
+
+
+<%- include('template/bottom.ejs') %>

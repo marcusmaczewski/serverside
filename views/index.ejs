@@ -1,0 +1,33 @@
+<%- include('template/top.ejs') %>
+
+	<% if(locals.players)  { %>
+		<h1>Her er dine spillere</h1>
+		<div class="myplayers">
+			<% players.forEach(player => { %>
+				
+				<a href="/players/edit/<%= player.id %>" class="single_player">
+					<div class="inner">
+						<div class="playerage" title="Spillerens Alder">
+							<%= player.age ? player.age : "00" %>
+						</div>
+						<div class="playerdetails">
+							<div class="gamertag"><%= player.gamertag %></div>
+							<br>
+							<div class="name"><%= player.fullname %></div>
+						</div>
+					</div>
+					<div class="gradient"></div>
+					<% if(player.image)  { %>
+						<img class="profile_avatar" src="/public/images/<%= player.image %>" alt="userimg">
+					<% }else{  %>
+						<img class="profile_avatar" src="https://aclionsnews.files.wordpress.com/2018/09/missing-avatar.jpg" alt="missing_userimg">
+					<% }  %>
+				</a>
+				
+	
+			<% });  %>
+		</div>
+
+	<% } %>
+
+<%- include('template/bottom.ejs') %>
